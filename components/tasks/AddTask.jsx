@@ -1,7 +1,8 @@
 const AddTask = () => {
   return (
     <div className="header__control">
-      <input className="header__check" type="checkbox" />
+      <input id="addCheck" className="header__check" type="checkbox" />
+      <label className="header__label" htmlFor="addCheck"></label>
       <input
         className="header__input"
         type="text"
