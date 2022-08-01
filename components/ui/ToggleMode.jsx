@@ -1,5 +1,5 @@
 const ToggleMode = () => {
-  return <button></button>;
+  return <button className="header__toggle"></button>;
 };
 
 export default ToggleMode;
