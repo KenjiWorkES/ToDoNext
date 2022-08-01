@@ -2,7 +2,7 @@ import TaskItem from "./TaskItem";
 
 const TaskList = () => {
   return (
-    <ul className="task__list">
+    <ul className="tasks__list">
       <TaskItem />
       <TaskItem />
       <TaskItem />

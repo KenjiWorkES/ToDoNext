@@ -1,5 +1,11 @@
+import TaskList from "../components/tasks/TasksList";
+
 const HomePage = () => {
-  return <div>Test</div>;
+  return (
+    <section className="tasks">
+      <TaskList />
+    </section>
+  );
 };
 
 export default HomePage;
