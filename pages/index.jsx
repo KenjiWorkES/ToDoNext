@@ -11,7 +11,7 @@ const HomePage = ({ items }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = await MongoClient.connect(
     "mongodb+srv://tasklist:olfTeN3HSrRxE4ws@cluster0.y17r7ci.mongodb.net/?retryWrites=true&w=majority"
   );
@@ -24,7 +24,6 @@ export async function getStaticProps() {
     props: {
       items: JSON.parse(JSON.stringify(resolve)),
     },
-    revalidate: 30,
   };
 }
 
