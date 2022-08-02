@@ -5,16 +5,29 @@ const AddTask = () => {
 
   const [enteredTask, setEnteredTask] = useState("");
 
-  const onEnterHandler = (event) => {
+  const onEnterHandler = async (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
+      const checkedValue = checkRef.current.checked;
+      const task = { text: enteredTask, completed: checkedValue };
+
+      const response = await fetch("/api/tasks", {
+        method: "POST",
+        body: JSON.stringify(task),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+      console.log(data);
+
       setEnteredTask("");
       console.log(checkRef.current.checked);
     }
   };
 
   const onTypeHandler = (event) => {
-    console.log(event.target.value);
     setEnteredTask(event.target.value);
   };
 
