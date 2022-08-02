@@ -4,7 +4,7 @@ class MyDocuments extends Document {
   render() {
     <Html>
       <Head />
-      <body data-theme="dark">
+      <body data-theme="light">
         <Main />
         <NextScript />
       </body>

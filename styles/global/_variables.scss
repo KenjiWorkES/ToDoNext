@@ -6,28 +6,22 @@ $color-primary: hsl(220, 98%, 61%);
 $color-check-blue: hsl(192, 100%, 67%);
 $color-check-purple: hsl(280, 87%, 65%);
 
-$color-logo: hsl(0, 0%, 98%);
-
 //Theme
 
-$color-background: hsl(0, 0%, 98%);
-$color-border: hsl(236, 9%, 61%);
-$color-text: hsl(235, 19%, 35%);
-$color-body: #fff;
-$color-shadow: hsl(235, 19%, 35%);
-
-[data-theme="light"] {
-  --color-background: hsl(0, 0%, 98%);
-  --color-border: hsl(236, 9%, 61%);
-  --color-text: hsl(235, 19%, 35%);
-  --color-body: #fff;
-  --color-shadow: hsl(235, 19%, 35%);
-}
-
 [data-theme="dark"] {
+  --color-logo: hsl(0, 0%, 98%);
   --color-background: hsl(235, 24%, 19%);
   --color-border: hsl(234, 11%, 52%);
   --color-text: hsl(234, 39%, 85%);
   --color-body: hsl(235, 21%, 11%);
-  --color-shadow: hsl(235, 24%, 19%);
+  --color-shadow: rgba(36, 38, 60, 0.3);
+}
+
+[data-theme="light"] {
+  --color-logo: hsl(0, 0%, 98%);
+  --color-background: hsl(0, 0%, 98%);
+  --color-border: hsl(236, 9%, 61%);
+  --color-text: hsl(235, 19%, 35%);
+  --color-body: #fff;
+  --color-shadow: rgba(72, 75, 106, 0.3);
 }
