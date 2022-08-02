@@ -4,10 +4,9 @@ async function handler(req, res) {
   const client = await MongoClient.connect(
     "mongodb+srv://tasklist:olfTeN3HSrRxE4ws@cluster0.y17r7ci.mongodb.net/?retryWrites=true&w=majority"
   );
+  const db = client.db("tasks");
 
   if (req.method === "POST") {
-    const db = client.db("tasks");
-
     const { completed, text } = req.body;
 
     if (!text || text.trim() === "") {
@@ -26,6 +25,20 @@ async function handler(req, res) {
       type: "Sucess",
       message: "Task added!",
       task: newTask,
+    });
+  }
+
+  if (req.method === "GET") {
+    const resolve = await db
+      .collection("tasks")
+      .find()
+      .sort({ text: 1 })
+      .toArray();
+
+    res.status(201).json({
+      type: "Sucess",
+      message: "Geted All Tasks",
+      tasks: resolve,
     });
   }
 
