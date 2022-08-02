@@ -116,5 +116,9 @@
     &:not(:last-child) {
       margin-right: 2rem;
     }
+
+    &--active {
+      color: $color-primary;
+    }
   }
 }

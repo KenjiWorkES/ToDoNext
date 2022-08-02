@@ -1,13 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import TaskItem from "./TaskItem";
 import TaskFilter from "./TaskFilter";
 
 const TaskList = ({ items }) => {
+  const [listItems, setListItems] = useState(items);
+
+  const filterHandler = (filteredList) => {
+    setListItems(filteredList);
+  };
+
   return (
     <>
       <ul className="tasks__list">
-        {items.map((item) => {
+        {listItems.map((item) => {
           return <TaskItem key={item._id} item={item} />;
         })}
 
@@ -16,7 +22,7 @@ const TaskList = ({ items }) => {
           <p className="tasks__control"> Clear Clompleted</p>
         </li>
       </ul>
-      <TaskFilter />
+      <TaskFilter onFilter={filterHandler} list={items} />
     </>
   );
 };
