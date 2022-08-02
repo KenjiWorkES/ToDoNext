@@ -5,6 +5,7 @@ const TasksContext = createContext({
   setTaskList: () => {},
   updateTasksList: () => {},
   updateItem: (id, completed) => {},
+  removeItem: (id) => {},
 });
 
 export const TaskContextProvider = ({ children }) => {
@@ -33,6 +34,14 @@ export const TaskContextProvider = ({ children }) => {
     setTasks(updatedList);
   };
 
+  const removeItemHandler = (id) => {
+    const updatedList = tasks.filter((item) => {
+      return item._id !== id;
+    });
+
+    setTasks(updatedList);
+  };
+
   return (
     <TasksContext.Provider
       value={{
@@ -40,6 +49,7 @@ export const TaskContextProvider = ({ children }) => {
         setTaskList: setTasksHandler,
         updateTasksList: updateTasksHandler,
         updateItem: updateItemHandler,
+        removeItem: removeItemHandler,
       }}
     >
       {children}

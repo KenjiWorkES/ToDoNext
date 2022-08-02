@@ -26,6 +26,21 @@ const TaskItem = ({ item }) => {
     console.log(event.target.id);
   };
 
+  const removeItemHandler = async () => {
+    const response = await fetch("/api/delete-tasks", {
+      method: "POST",
+      body: JSON.stringify({ text: item.text }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    ctx.removeItem(item._id);
+
+    const data = await response.json();
+    console.log(data);
+  };
+
   return (
     <li className="tasks__item">
       <input
@@ -37,7 +52,7 @@ const TaskItem = ({ item }) => {
       />
       <label className="tasks__label" htmlFor={item._id}></label>
       <p className="tasks__text">{item.text}</p>
-      <button className="tasks__delete">
+      <button onClick={removeItemHandler} className="tasks__delete">
         <img src="/icon-cross.svg" alt="Close Button" />
       </button>
     </li>
