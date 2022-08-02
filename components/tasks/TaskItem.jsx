@@ -1,10 +1,17 @@
+import TasksContext from "../../context/tasks-context";
+import { useContext } from "react";
+
 const TaskItem = ({ item }) => {
+  const ctx = useContext(TasksContext);
+
   const checkedHandler = async (event) => {
     const taskChecked = {
-      id: item.id,
+      id: item._id,
       text: item.text,
       completed: event.target.checked,
     };
+
+    ctx.updateItem(item._id, event.target.checked);
 
     const response = await fetch("/api/update-tasks", {
       method: "POST",
