@@ -1,11 +1,15 @@
 import "../styles/main.scss";
+
+import { TaskContextProvider } from "../context/tasks-context";
 import Layout from "../components/layout/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <TaskContextProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </TaskContextProvider>
   );
 }
 

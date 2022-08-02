@@ -1,13 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import TasksContext from "../../context/tasks-context";
 
 import TaskItem from "./TaskItem";
 import TaskFilter from "./TaskFilter";
 
 const TaskList = ({ items }) => {
-  const [listItems, setListItems] = useState(items);
+  const ctx = useContext(TasksContext);
+  const listItems = ctx.tasksList;
+
+  useEffect(() => {
+    if (items) {
+      ctx.setTaskList(items);
+    }
+  }, []);
 
   const filterHandler = (filteredList) => {
-    setListItems(filteredList);
+    ctx.setTaskList(filteredList);
   };
 
   return (

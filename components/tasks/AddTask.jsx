@@ -1,6 +1,8 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
+import TasksContext from "../../context/tasks-context";
 
 const AddTask = () => {
+  const ctx = useContext(TasksContext);
   const checkRef = useRef();
 
   const [enteredTask, setEnteredTask] = useState("");
@@ -21,6 +23,7 @@ const AddTask = () => {
 
       const data = await response.json();
       console.log(data);
+      ctx.updateTasksList(data.task);
 
       setEnteredTask("");
       console.log(checkRef.current.checked);
