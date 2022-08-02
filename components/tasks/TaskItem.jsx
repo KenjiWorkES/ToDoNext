@@ -37,6 +37,7 @@ const TaskItem = ({ item }) => {
       />
       <label className="tasks__label" htmlFor={item._id}></label>
       <p className="tasks__text">{item.text}</p>
+      <img className="tasks__delete" src="/icon-cross.svg" />
     </li>
   );
 };
