@@ -12,6 +12,11 @@ const Layout = ({ children }) => {
       if (localStorage.getItem("mode")) {
         const theme = localStorage.getItem("mode");
         document.body.setAttribute("data-theme", theme);
+        if (theme === "light") {
+          setDarkMode(false);
+        } else {
+          setDarkMode(true);
+        }
       }
       setIsFirst(false);
     }
