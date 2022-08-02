@@ -14,8 +14,8 @@ const Layout = ({ children }) => {
         </form>
       </header>
       <main>{children}</main>
-      <footer>
-        <p>Drag and drop to reader list</p>
+      <footer className="footer">
+        <p className="footer__info">Drag and drop to reader list</p>
       </footer>
     </>
   );

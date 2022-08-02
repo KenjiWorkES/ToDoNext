@@ -1,4 +1,5 @@
 import TaskItem from "./TaskItem";
+import TaskFilter from "./TaskFilter";
 
 const TaskList = () => {
   return (
@@ -13,6 +14,7 @@ const TaskList = () => {
           <p className="tasks__control"> Clear Clompleted</p>
         </li>
       </ul>
+      <TaskFilter />
     </>
   );
 };

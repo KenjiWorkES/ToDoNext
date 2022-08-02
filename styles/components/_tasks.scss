@@ -84,4 +84,32 @@
     text-decoration: line-through;
     color: $color-border;
   }
+
+  &__filter {
+    list-style: none;
+    margin-top: 2rem;
+    width: 100%;
+    background-color: $color-background;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    padding: 2rem 2rem;
+    justify-content: center;
+    box-shadow: 0px 4px 5px 2px rgba($color-text, 0.3);
+  }
+
+  &__filterItem {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $color-border;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
 }
