@@ -3,6 +3,11 @@
   padding: 0rem 2rem 2rem;
   margin-top: -3rem;
 
+  @include responsive(tablet) {
+    max-width: 74rem;
+    margin: -3rem auto;
+  }
+
   &__list {
     list-style: none;
     display: flex;

@@ -5,8 +5,20 @@
   background-repeat: no-repeat;
   padding: 5rem 2rem 5rem;
 
+  @include responsive(tablet) {
+    background-image: url("../../public/bg-desktop-light.jpg");
+  }
+
+  @include responsive(desktop) {
+  }
+
   &__form {
     width: 100%;
+
+    @include responsive(tablet) {
+      max-width: 70rem;
+      margin: 0 auto;
+    }
   }
 
   &__container {
