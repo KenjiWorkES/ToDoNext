@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
           <AddTask />
         </form>
       </header>
-      <main>{children}</main>
+      <main data-theme="dark">{children}</main>
       <footer className="footer">
         <p className="footer__info">Drag and drop to reader list</p>
       </footer>
