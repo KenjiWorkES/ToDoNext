@@ -18,7 +18,7 @@ export async function getServerSideProps() {
   const db = client.db("tasks");
   const resolve = await db.collection("tasks").find().toArray();
 
-  console.log(resolve);
+  //console.log(resolve);
 
   return {
     props: {

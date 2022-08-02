@@ -13,7 +13,7 @@ const AddTask = () => {
       const checkedValue = checkRef.current.checked;
       const task = { text: enteredTask, completed: checkedValue };
 
-      const response = await fetch("/api/tasks", {
+      const response = await fetch("/api/post-tasks", {
         method: "POST",
         body: JSON.stringify(task),
         headers: {
