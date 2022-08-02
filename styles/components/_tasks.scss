@@ -88,12 +88,15 @@
   }
 
   &__delete {
-    opacity: 0;
     border: none;
     background-color: transparent;
     cursor: pointer;
     transform: translateY(5px);
     transition: opacity 0.3s;
+
+    @include responsive(desktop) {
+      opacity: 0;
+    }
   }
 
   &__item:hover &__delete {

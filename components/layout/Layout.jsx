@@ -5,13 +5,24 @@ import AddTask from "../tasks/AddTask";
 
 const Layout = ({ children }) => {
   const [darkmode, setDarkMode] = useState(false);
+  const [isFirst, setIsFirst] = useState(true);
 
   useEffect(() => {
-    if (!darkmode) {
-      document.body.setAttribute("data-theme", "light");
+    if (isFirst) {
+      if (localStorage.getItem("mode")) {
+        const theme = localStorage.getItem("mode");
+        document.body.setAttribute("data-theme", theme);
+      }
+      setIsFirst(false);
     }
-    if (darkmode) {
+
+    if (!darkmode && !isFirst) {
+      document.body.setAttribute("data-theme", "light");
+      localStorage.setItem("mode", "light");
+    }
+    if (darkmode && !isFirst) {
       document.body.setAttribute("data-theme", "dark");
+      localStorage.setItem("mode", "dark");
     }
   }, [darkmode]);
 
