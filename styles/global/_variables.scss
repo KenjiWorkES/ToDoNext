@@ -6,28 +6,30 @@ $color-primary: hsl(220, 98%, 61%);
 $color-check-blue: hsl(192, 100%, 67%);
 $color-check-purple: hsl(280, 87%, 65%);
 
+$color-logo: hsl(0, 0%, 98%);
+
 //Light
 
-$color-background: hsl(0, 0%, 98%);
+/*$color-background: hsl(0, 0%, 98%);
 $color-border: hsl(236, 9%, 61%);
-$color-text: hsl(235, 19%, 35%);
+$color-text: hsl(235, 19%, 35%)
+$color-body:#fff;
+$color-shadow: hsl(235, 19%, 35%)*/
 
 //Dark
 
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
+$color-background: hsl(235, 24%, 19%);
+$color-border: hsl(234, 11%, 52%);
+$color-text: hsl(234, 39%, 85%);
+$color-body: hsl(235, 21%, 11%);
+$color-shadow: hsl(235, 24%, 19%);
 
-body {
-  box-sizing: border-box;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 400;
-}
-
-html {
-  font-size: 62.5%;
-}
+/*
+Very Dark Blue: hsl(235, 21%, 11%)
+- Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+- Light Grayish Blue: hsl(234, 39%, 85%)
+- Light Grayish Blue (hover): hsl(236, 33%, 92%)
+- Dark Grayish Blue: hsl(234, 11%, 52%)
+- Very Dark Grayish Blue: hsl(233, 14%, 35%)
+- Very Dark Grayish Blue: hsl(237, 14%, 26%)
+*/
