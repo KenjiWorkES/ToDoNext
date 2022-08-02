@@ -18,6 +18,14 @@ const TaskList = ({ items }) => {
     ctx.setTaskList(filteredList);
   };
 
+  let leftItems = 0;
+
+  listItems.map((item) => {
+    if (!item.completed) {
+      leftItems++;
+    }
+  });
+
   return (
     <>
       <ul className="tasks__list">
@@ -26,7 +34,7 @@ const TaskList = ({ items }) => {
         })}
 
         <li className="tasks__item tasks__item--controller">
-          <p className="tasks__control">5 items left</p>
+          <p className="tasks__control">{leftItems} items left</p>
           <p className="tasks__control"> Clear Clompleted</p>
         </li>
       </ul>
