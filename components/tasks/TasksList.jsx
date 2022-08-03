@@ -39,14 +39,15 @@ const TaskList = ({ items }) => {
             {listItems.map((item, index) => {
               return <TaskItem key={item._id} dragIndex={index} item={item} />;
             })}
-            <li className="tasks__item tasks__item--controller">
-              <p className="tasks__control">{leftItems} items left</p>
-              <p className="tasks__control"> Clear Clompleted</p>
-            </li>
+
             {provided.placeholder}
           </ul>
         )}
       </Droppable>
+      <div className="tasks__item tasks__item--controller">
+        <p className="tasks__control">{leftItems} items left</p>
+        <p className="tasks__control"> Clear Clompleted</p>
+      </div>
 
       <TaskFilter onFilter={filterHandler} list={items} />
     </DragDropContext>
