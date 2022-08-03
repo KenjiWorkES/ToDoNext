@@ -36,7 +36,7 @@ const TaskItem = ({ item, dragIndex }) => {
       },
     });
 
-    ctx.removeItem(1);
+    ctx.removeItem(item._id);
 
     const data = await response.json();
     console.log(data);

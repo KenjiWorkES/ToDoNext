@@ -36,6 +36,7 @@ export const TaskContextProvider = ({ children }) => {
   };
 
   const removeItemHandler = (id) => {
+    console.log("Deleted");
     const updatedList = tasks.filter((item) => {
       return item._id !== id;
     });
