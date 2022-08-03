@@ -6,7 +6,6 @@ const TasksContext = createContext({
   updateTasksList: () => {},
   updateItem: (id, completed) => {},
   removeItem: (id) => {},
-  uncompletedAll: () => {},
 });
 
 export const TaskContextProvider = ({ children }) => {
@@ -21,7 +20,6 @@ export const TaskContextProvider = ({ children }) => {
   };
 
   const updateItemHandler = (id, completed) => {
-    console.log(id);
     const updatedList = tasks.map((item) => {
       if (item._id === id) {
         console.log(item.text);
@@ -36,25 +34,12 @@ export const TaskContextProvider = ({ children }) => {
   };
 
   const removeItemHandler = (id) => {
-    console.log("Deleted");
     const updatedList = tasks.filter((item) => {
       return item._id !== id;
     });
 
     setTasks(updatedList);
   };
-
-  /*const uncompletedAllHandler = () => {
-    const uncompletedList = tasks.map((task) => {
-      return {
-        _id: task.id,
-        text: task.text,
-        completed: false,
-      };
-    });
-
-    setTasks(uncompletedList);
-  };*/
 
   return (
     <TasksContext.Provider
