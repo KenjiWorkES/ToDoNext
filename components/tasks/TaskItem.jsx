@@ -1,7 +1,8 @@
 import TasksContext from "../../context/tasks-context";
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { Draggable } from "react-beautiful-dnd";
 
-const TaskItem = ({ item }) => {
+const TaskItem = ({ item, dragIndex }) => {
   const ctx = useContext(TasksContext);
 
   const checkedHandler = async (event) => {
@@ -35,27 +36,36 @@ const TaskItem = ({ item }) => {
       },
     });
 
-    ctx.removeItem(item._id);
+    ctx.removeItem(1);
 
     const data = await response.json();
     console.log(data);
   };
 
   return (
-    <li className="tasks__item">
-      <input
-        id={item._id}
-        className="tasks__check"
-        type="checkbox"
-        defaultChecked={item.completed}
-        onChange={checkedHandler}
-      />
-      <label className="tasks__label" htmlFor={item._id}></label>
-      <p className="tasks__text">{item.text}</p>
-      <button onClick={removeItemHandler} className="tasks__delete">
-        <img src="/icon-cross.svg" alt="Close Button" />
-      </button>
-    </li>
+    <Draggable draggableId={item._id} index={dragIndex}>
+      {(provided) => (
+        <li
+          ref={provided.innerRef}
+          className="tasks__item"
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <input
+            id={item._id}
+            className="tasks__check"
+            type="checkbox"
+            defaultChecked={item.completed}
+            onChange={checkedHandler}
+          />
+          <label className="tasks__label" htmlFor={item._id}></label>
+          <p className="tasks__text">{item.text}</p>
+          <button onClick={removeItemHandler} className="tasks__delete">
+            <img src="/icon-cross.svg" alt="Close Button" />
+          </button>
+        </li>
+      )}
+    </Draggable>
   );
 };
 
