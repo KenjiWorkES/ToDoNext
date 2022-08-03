@@ -68,10 +68,7 @@ const TaskList = ({ items }) => {
       </Droppable>
       <div className="tasks__item tasks__item--controller">
         <p className="tasks__control">{leftItems} items left</p>
-        <p className="tasks__control" onClick={ctx.uncompletedAll}>
-          {" "}
-          Clear Clompleted
-        </p>
+        <p className="tasks__control"> Clear Clompleted</p>
       </div>
 
       <TaskFilter onFilter={filterHandler} list={items} />

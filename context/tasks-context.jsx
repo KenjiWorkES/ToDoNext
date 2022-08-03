@@ -43,7 +43,7 @@ export const TaskContextProvider = ({ children }) => {
     setTasks(updatedList);
   };
 
-  const uncompletedAllHandler = () => {
+  /*const uncompletedAllHandler = () => {
     const uncompletedList = tasks.map((task) => {
       return {
         _id: task.id,
@@ -53,7 +53,7 @@ export const TaskContextProvider = ({ children }) => {
     });
 
     setTasks(uncompletedList);
-  };
+  };*/
 
   return (
     <TasksContext.Provider
@@ -63,7 +63,6 @@ export const TaskContextProvider = ({ children }) => {
         updateTasksList: updateTasksHandler,
         updateItem: updateItemHandler,
         removeItem: removeItemHandler,
-        uncompletedAll: uncompletedAllHandler,
       }}
     >
       {children}
