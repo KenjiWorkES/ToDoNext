@@ -3,6 +3,10 @@
   padding: 0 2rem 2rem;
   text-align: center;
 
+  @include responsive(desktop) {
+    margin-top: 5rem;
+  }
+
   &__info {
     font-size: 1.4rem;
     color: var(--color-border);
