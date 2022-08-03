@@ -22,12 +22,29 @@ const AddTask = () => {
       });
 
       const data = await response.json();
-      console.log(data);
       ctx.updateTasksList(data.task);
 
       setEnteredTask("");
-      console.log(checkRef.current.checked);
     }
+  };
+
+  const addTaskHandler = async (event) => {
+    event.preventDefault();
+    const checkedValue = checkRef.current.checked;
+    const task = { text: enteredTask, completed: checkedValue };
+
+    const response = await fetch("/api/post-tasks", {
+      method: "POST",
+      body: JSON.stringify(task),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    ctx.updateTasksList(data.task);
+
+    setEnteredTask("");
   };
 
   const onTypeHandler = (event) => {
@@ -51,6 +68,9 @@ const AddTask = () => {
         onChange={onTypeHandler}
         value={enteredTask}
       />
+      <button className="header__add" onClick={addTaskHandler}>
+        <img className="header__icon" src="/icon-add.svg"></img>
+      </button>
     </div>
   );
 };
