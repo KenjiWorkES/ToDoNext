@@ -1,12 +1,12 @@
 .header {
   width: 100%;
-  background-image: url("../../public/bg-mobile-light.jpg");
+  background-image: var(--mobile-banner);
   background-size: cover;
   background-repeat: no-repeat;
   padding: 5rem 2rem 5rem;
 
   @include responsive(tablet) {
-    background-image: url("../../public/bg-desktop-light.jpg");
+    background-image: var(--desktop-banner);
   }
 
   @include responsive(desktop) {
